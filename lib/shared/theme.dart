@@ -10,7 +10,7 @@ Color accentColor3 = Color(0xFFADADAD);
 TextStyle blackTextStyle = GoogleFonts.raleway()
     .copyWith(color: Colors.black, fontWeight: FontWeight.w500);
 TextStyle whiteTextStyle = GoogleFonts.raleway()
-    .copyWith(color: Colors.black, fontWeight: FontWeight.w500);
+    .copyWith(color: Colors.white, fontWeight: FontWeight.w500);
 TextStyle purpleTextStyle = GoogleFonts.raleway()
     .copyWith(color: mainColor, fontWeight: FontWeight.w500);
 TextStyle greyTextStyle = GoogleFonts.raleway()
