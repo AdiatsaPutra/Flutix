@@ -53,9 +53,9 @@ class SplashPage extends StatelessWidget {
                   'Already have An Account? ',
                   style: greyTextStyle.copyWith(fontWeight: FontWeight.w300),
                 ),
-                InkWell(
+                GestureDetector(
                     onTap: () {
-                      print('Tapped');
+                      context.bloc<PageBloc>().add(GoToLoginPage());
                     },
                     child: Text('Sign In', style: purpleTextStyle))
               ],
