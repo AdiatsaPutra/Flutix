@@ -29,7 +29,18 @@ class _MainPageState extends State<MainPage> {
             child: Container(
           color: Color(0xFFF6F7F9),
         )),
-        ListView(),
+        PageView(
+          controller: pageController,
+          onPageChanged: (index) {
+            setState(() {
+              botomNavigationBarIndex = index;
+            });
+          },
+          children: [
+            Center(child: Text('New Movie')),
+            Center(child: Text('My Tickets')),
+          ],
+        ),
         buildBottomNavigationBar(),
         Align(
           alignment: Alignment.bottomCenter,
@@ -46,7 +57,7 @@ class _MainPageState extends State<MainPage> {
                   width: 26,
                   child: Icon(
                     MdiIcons.walletPlus,
-                    color: Colors.black.withOpacity(0.7),
+                    color: mainColor,
                   ),
                 ),
               )),
@@ -75,6 +86,7 @@ class _MainPageState extends State<MainPage> {
               onTap: (index) {
                 setState(() {
                   botomNavigationBarIndex = index;
+                  pageController.jumpToPage(index);
                 });
               },
               items: [
