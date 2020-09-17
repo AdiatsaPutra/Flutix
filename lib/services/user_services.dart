@@ -13,7 +13,7 @@ class UserServices {
       'balance': user.balance,
       'selectedGenres': user.selectedGenres,
       'selectedLanguages': user.selectedLanguages,
-      'profilePictures': user.profilePicture ?? '',
+      'profilePicture': user.profilePicture ?? '',
     });
   }
 
@@ -25,8 +25,8 @@ class UserServices {
       snapshot.data['email'],
       name: snapshot.data['name'],
       balance: snapshot.data['balance'],
-      profilePicture: snapshot.data['profilePicture'],
-      selectedGenres: (snapshot.data['selectedGenres'] as List)
+      profilePicture: snapshot.data['profilePictures'],
+      selectedGenres: (snapshot.data['selectedGenre'] as List)
           .map((e) => e.toString())
           .toList(),
       selectedLanguages: snapshot.data['selectedLanguages'],

@@ -37,7 +37,7 @@ class _MainPageState extends State<MainPage> {
             });
           },
           children: [
-            Center(child: Text('New Movie')),
+            MoviePage(),
             Center(child: Text('My Tickets')),
           ],
         ),
