@@ -5,7 +5,7 @@ class MoviePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        // note: HEADER
+        // note: APPBAR
         Container(
           decoration: BoxDecoration(
               color: accentColor1,
@@ -24,10 +24,6 @@ class MoviePage extends StatelessWidget {
                         border: Border.all(color: Color(0xFF5F558B), width: 1)),
                     child: Stack(
                       children: <Widget>[
-                        SpinKitFadingCircle(
-                          color: accentColor2,
-                          size: 50,
-                        ),
                         Container(
                           width: 50,
                           height: 50,
