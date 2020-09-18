@@ -42,6 +42,45 @@ class MoviePage extends StatelessWidget {
                   SizedBox(
                     width: 16,
                   ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width -
+                            defaultMargin * 2 -
+                            78,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Hi, ' + userState.user.name,
+                              style: whiteTextStyle.copyWith(fontSize: 18),
+                              maxLines: 1,
+                              overflow: TextOverflow.clip,
+                            ),
+                            GestureDetector(
+                              child: Text(
+                                'Sign Out',
+                                style: whiteTextStyle,
+                              ),
+                              onTap: () {
+                                context.bloc<UserBloc>().add(SignOut());
+                                AuthServices.signOut();
+                              },
+                            )
+                          ],
+                        ),
+                      ),
+                      Row(children: [
+                        Text('Sisa Saldo: ', style: whiteTextStyle),
+                        Text(
+                          NumberFormat.currency(symbol: 'Rp. ', locale: 'id_ID')
+                              .format(userState.user.balance),
+                          style: yellowNumberStyle.copyWith(fontSize: 14),
+                        )
+                      ])
+                    ],
+                  )
                 ],
               );
             } else {

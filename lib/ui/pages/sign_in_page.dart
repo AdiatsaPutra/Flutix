@@ -128,10 +128,6 @@ class _SignInPageState extends State<SignInPage> {
                                       backgroundColor: Color(0xFFFF5C83),
                                       message: result.message,
                                     )..show(context);
-                                    // AlertDialog(
-                                    //   title: Text('Terjadi Kesalahan'),
-                                    //   content: Text(result.message),
-                                    // );
                                   }
                                 }
                               : null,

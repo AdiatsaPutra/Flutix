@@ -4,7 +4,6 @@ class UserServices {
   // Membuat Collection Baru Dengan Nama 'users' Pada Firestore
   static CollectionReference _userCollection =
       Firestore.instance.collection('users');
-  // Mengupdate Collection 'users'
   // Set Data User Baru Pada Firestore
   static Future<void> updateUser(User user) {
     _userCollection.document(user.id).setData({
