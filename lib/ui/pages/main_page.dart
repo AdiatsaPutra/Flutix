@@ -41,7 +41,7 @@ class _MainPageState extends State<MainPage> {
             Center(child: Text('My Tickets')),
           ],
         ),
-        buildBottomNavigationBar(),
+        buildBottomNav(),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -66,7 +66,7 @@ class _MainPageState extends State<MainPage> {
     ));
   }
 
-  Widget buildBottomNavigationBar() {
+  Widget buildBottomNav() {
     return Align(
       alignment: Alignment.bottomCenter,
       child: ClipPath(
