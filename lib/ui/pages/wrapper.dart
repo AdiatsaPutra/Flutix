@@ -27,6 +27,10 @@ class Wrapper extends StatelessWidget {
         // Kondisi Navigasi PageState Akan Masuk Ke Halaman Apa
         builder: (_, pageState) => (pageState is OnSplashPage)
             ? SplashPage()
-            : (pageState is OnLoginPage) ? SignInPage() : MainPage());
+            : (pageState is OnLoginPage)
+                ? SignInPage()
+                : (pageState is OnRegistrationPage)
+                    ? SignInPage()
+                    : MainPage());
   }
 }
