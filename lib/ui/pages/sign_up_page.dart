@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
       },
       child: Scaffold(
         body: Container(
-          color: Colors.white,
+          color: mainColor,
           padding: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ListView(
             children: [
@@ -43,15 +43,146 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: 56,
                 child: Stack(
                   children: [
-                    GestureDetector(
-                        onTap: () {
-                          context.bloc<PageBloc>().add(GoToSplashPage());
-                        },
-                        child: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.black,
-                        ))
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: GestureDetector(
+                          onTap: () {
+                            context.bloc<PageBloc>().add(GoToSplashPage());
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.black,
+                          )),
+                    ),
+                    Center(
+                        child: Text(
+                      'Sign Me Up',
+                      style: blackTextStyle.copyWith(
+                          fontSize: 23, fontWeight: FontWeight.w700),
+                      textAlign: TextAlign.center,
+                    )),
                   ],
+                ),
+              ),
+              Center(
+                child: Container(
+                  height: 104,
+                  width: 90,
+                  child: Stack(
+                    children: [
+                      Container(
+                        height: 90,
+                        width: 90,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                                image: (widget.registrationData.profileImage ==
+                                        null)
+                                    ? AssetImage('assets/man.png')
+                                    : FileImage(
+                                        widget.registrationData.profileImage))),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: GestureDetector(
+                          onTap: () {
+                            // todo: Get Profile Image
+                          },
+                          child: Container(
+                              height: 28,
+                              width: 28,
+                              child: (widget.registrationData.profileImage ==
+                                      null)
+                                  ? Icon(Icons.add_a_photo, color: Colors.white)
+                                  : Icon(
+                                      Icons.remove_circle,
+                                      color: Colors.red,
+                                    )),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 36,
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height - 270,
+                width: MediaQuery.of(context).size.width - 100,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20)),
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      SizedBox(height: 10),
+                      TextField(
+                        controller: nameController,
+                        maxLength: 20,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          hintText: 'FullName',
+                          labelText: 'FullName',
+                        ),
+                      ),
+                      TextField(
+                        controller: emailController,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            hintText: 'Email',
+                            labelText: 'Email'),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextField(
+                        controller: passwordController,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            hintText: 'Password',
+                            labelText: 'Password'),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextField(
+                        controller: confirmController,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            hintText: 'Confirm Password',
+                            labelText: 'Confirm Password'),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      RaisedButton(
+                          color: mainColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Container(
+                            width: 70,
+                            height: 50,
+                            child: Row(
+                              children: [
+                                Text('Next',
+                                    style:
+                                        whiteTextStyle.copyWith(fontSize: 18)),
+                                Icon(
+                                  Icons.navigate_next,
+                                  color: Colors.white,
+                                )
+                              ],
+                            ),
+                          ),
+                          onPressed: () {})
+                    ],
+                  ),
                 ),
               )
             ],
