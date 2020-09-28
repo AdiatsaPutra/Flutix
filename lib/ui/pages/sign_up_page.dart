@@ -89,8 +89,14 @@ class _SignUpPageState extends State<SignUpPage> {
                       Align(
                         alignment: Alignment.bottomCenter,
                         child: GestureDetector(
-                          onTap: () {
-                            // todo: Get Profile Image
+                          onTap: () async {
+                            // Checking Image Availability
+                            if (widget.registrationData.profileImage == null) {
+                              widget.registrationData.profileImage =
+                                  await pick();
+                            } else {
+                              widget.registrationData.profileImage = null;
+                            }
                           },
                           child: Container(
                               height: 28,
@@ -128,8 +134,8 @@ class _SignUpPageState extends State<SignUpPage> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          hintText: 'FullName',
-                          labelText: 'FullName',
+                          hintText: 'Name',
+                          labelText: 'Name',
                         ),
                       ),
                       TextField(
@@ -165,26 +171,18 @@ class _SignUpPageState extends State<SignUpPage> {
                       SizedBox(
                         height: 20,
                       ),
-                      RaisedButton(
-                          color: mainColor,
+                      FloatingActionButton(
+                          backgroundColor: mainColor,
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
                           child: Container(
-                            width: 70,
-                            height: 50,
-                            child: Row(
-                              children: [
-                                Text('Next',
-                                    style:
-                                        whiteTextStyle.copyWith(fontSize: 18)),
-                                Icon(
-                                  Icons.navigate_next,
-                                  color: Colors.white,
-                                )
-                              ],
-                            ),
-                          ),
+                              width: 70,
+                              height: 50,
+                              child: Icon(
+                                Icons.navigate_next,
+                                color: Colors.white,
+                              )),
                           onPressed: () {})
                     ],
                   ),
