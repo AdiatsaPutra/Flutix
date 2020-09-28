@@ -27,6 +27,10 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    // Get Theme Data
+    context
+        .bloc<ThemeBloc>()
+        .add(ChangeTheme(ThemeData().copyWith(primaryColor: accentColor2)));
     return WillPopScope(
       onWillPop: () async {
         context.bloc<PageBloc>().add(GoToSplashPage());
@@ -51,13 +55,13 @@ class _SignUpPageState extends State<SignUpPage> {
                           },
                           child: Icon(
                             Icons.arrow_back_ios,
-                            color: Colors.black,
+                            color: Colors.white,
                           )),
                     ),
                     Center(
                         child: Text(
                       'Sign Me Up',
-                      style: blackTextStyle.copyWith(
+                      style: whiteTextStyle.copyWith(
                           fontSize: 23, fontWeight: FontWeight.w700),
                       textAlign: TextAlign.center,
                     )),
@@ -163,6 +167,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                       RaisedButton(
                           color: mainColor,
+                          elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30)),
                           child: Container(
