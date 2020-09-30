@@ -86,7 +86,8 @@ class _SignUpPageState extends State<SignUpPage> {
                                         null)
                                     ? AssetImage('assets/man.png')
                                     : FileImage(
-                                        widget.registrationData.profileImage))),
+                                        widget.registrationData.profileImage),
+                                fit: BoxFit.cover)),
                       ),
                       Align(
                         alignment: Alignment.bottomCenter,
@@ -126,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: 36,
               ),
               Container(
-                height: MediaQuery.of(context).size.height - 270,
+                height: MediaQuery.of(context).size.height - 330,
                 width: MediaQuery.of(context).size.width - 100,
                 decoration: BoxDecoration(
                     color: Colors.white,
@@ -191,7 +192,23 @@ class _SignUpPageState extends State<SignUpPage> {
                                 Icons.navigate_next,
                                 color: Colors.white,
                               )),
-                          onPressed: () {})
+                          onPressed: () {
+                            // Sign Up Validation
+
+                            // Condition
+                            if ((nameController.text.trim() == "") &&
+                                (emailController.text.trim() == "") &&
+                                (passwordController.text.trim() == "") &&
+                                (confirmController.text.trim() == "")) {
+                              // Showing Warning
+                              Flushbar(
+                                backgroundColor: Colors.red,
+                                duration: Duration(seconds: 3),
+                                flushbarPosition: FlushbarPosition.BOTTOM,
+                                message: 'Silakan Isi Field Yang Kosong',
+                              )..show(context);
+                            }
+                          })
                     ],
                   ),
                 ),
