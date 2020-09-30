@@ -207,6 +207,53 @@ class _SignUpPageState extends State<SignUpPage> {
                                 flushbarPosition: FlushbarPosition.BOTTOM,
                                 message: 'Silakan Isi Field Yang Kosong',
                               )..show(context);
+                            } else if (
+
+                                // Check If Email Is Valid
+                                !EmailValidator.validate(
+                                    emailController.text)) {
+                              // Showing Warning
+                              Flushbar(
+                                backgroundColor: Colors.red,
+                                duration: Duration(seconds: 3),
+                                flushbarPosition: FlushbarPosition.BOTTOM,
+                                message: 'Please Enter Valid Email Address',
+                              )..show(context);
+                            } else if (
+
+                                // Check If Password Is Equal To Confirm Password
+                                passwordController.text !=
+                                    confirmController.text) {
+                              // Showing Warning
+                              Flushbar(
+                                backgroundColor: Colors.red,
+                                duration: Duration(seconds: 3),
+                                flushbarPosition: FlushbarPosition.BOTTOM,
+                                message:
+                                    'Password Dan Confirm Password Tidak Sama',
+                              )..show(context);
+                            } else if (
+
+                                // Check If Password Is Greater Than 6
+                                passwordController.text.length < 8) {
+                              // Showing Warning
+                              Flushbar(
+                                backgroundColor: Colors.red,
+                                duration: Duration(seconds: 3),
+                                flushbarPosition: FlushbarPosition.BOTTOM,
+                                message:
+                                    'Password Harus Lebih Dari 6 Character',
+                              )..show(context);
+                            } else {
+                              // Fill All The Data
+                              widget.registrationData.name =
+                                  nameController.text;
+                              widget.registrationData.email =
+                                  emailController.text;
+                              widget.registrationData.password =
+                                  passwordController.text;
+
+                              // todo: GoToPrevPage
                             }
                           })
                     ],
