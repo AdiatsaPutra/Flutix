@@ -3,6 +3,7 @@ part of 'pages.dart';
 class SignUpPage extends StatefulWidget {
   // Mengambil Instance RegistrationData dari model RegistrationData
   RegistrationData registrationData;
+
 // Konstruktor RegistrationData
   SignUpPage(this.registrationData);
 
@@ -20,7 +21,8 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   void initState() {
     super.initState();
-// Set Default Value
+
+    // Set Default Value
     nameController.text = widget.registrationData.name;
     emailController.text = widget.registrationData.email;
   }
@@ -93,10 +95,16 @@ class _SignUpPageState extends State<SignUpPage> {
                             // Checking Image Availability
                             if (widget.registrationData.profileImage == null) {
                               widget.registrationData.profileImage =
+
+                                  // Get Image From Gallery
                                   await pick();
                             } else {
+                              // If Image Is Null
                               widget.registrationData.profileImage = null;
                             }
+
+                            // Updating Profil Picture State
+                            setState(() {});
                           },
                           child: Container(
                               height: 28,
