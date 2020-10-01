@@ -23,10 +23,26 @@ class SelectableBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {
-          if (isEnabled == true) {
+          if (onTap != null) {
             onTap();
           }
         },
-        child: Container());
+        child: Container(
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+              color: (!isEnabled)
+                  ? Colors.grey
+                  : isSelected ? accentColor2 : Colors.transparent,
+              borderRadius: BorderRadius.circular(6),
+              border: Border.all(
+                  color: (!isEnabled)
+                      ? Colors.grey
+                      : isSelected ? Colors.transparent : Colors.grey)),
+          child: Center(
+              child: Text(text ?? 'none',
+                  style: (textStyle ?? blackTextStyle)
+                      .copyWith(fontSize: 16, fontWeight: FontWeight.w400))),
+        ));
   }
 }

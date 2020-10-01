@@ -127,7 +127,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 height: 36,
               ),
               Container(
-                height: MediaQuery.of(context).size.height - 330,
+                height: MediaQuery.of(context).size.height - 270,
                 width: MediaQuery.of(context).size.width - 100,
                 decoration: BoxDecoration(
                     color: Colors.white,
