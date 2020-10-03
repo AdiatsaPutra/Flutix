@@ -242,7 +242,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                 duration: Duration(seconds: 3),
                                 flushbarPosition: FlushbarPosition.BOTTOM,
                                 message:
-                                    'Password Harus Lebih Dari 6 Character',
+                                    'Password Harus Lebih Dari 8 Character',
                               )..show(context);
                             } else {
                               // Fill All The Data
@@ -253,7 +253,8 @@ class _SignUpPageState extends State<SignUpPage> {
                               widget.registrationData.password =
                                   passwordController.text;
 
-                              // todo: GoToPrevPage
+                              context.bloc<PageBloc>().add(
+                                  GoToPreferencePage(widget.registrationData));
                             }
                           })
                     ],
