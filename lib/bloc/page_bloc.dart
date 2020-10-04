@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:tiket_flutter/bloc/blocs.dart';
 import 'package:tiket_flutter/model/models.dart';
 
 part 'page_event.dart';
