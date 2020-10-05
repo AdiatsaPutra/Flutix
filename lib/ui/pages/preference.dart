@@ -74,10 +74,23 @@ class _PreferencePageState extends State<PreferencePage> {
                   Wrap(
                       spacing: 24,
                       runSpacing: 24,
-                      children: generateGenres(context)
                       // Generate Widgets Genres
-                      // generateGenres(context)
-                      )
+                      children: generateGenres(context)),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Text(
+                    'Select Movie Language You Prefer',
+                    style: blackTextStyle.copyWith(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Wrap(
+                    spacing: 24,
+                    runSpacing: 24,
+                    children: generateLanguages(context),
+                  )
                 ],
               )
             ],
@@ -87,6 +100,7 @@ class _PreferencePageState extends State<PreferencePage> {
     );
   }
 
+  // Generating Genres Widgets
   List<Widget> generateGenres(BuildContext context) {
     // Calculating Container Width
     double width =
@@ -104,9 +118,28 @@ class _PreferencePageState extends State<PreferencePage> {
         .toList();
   }
 
-// Method OnSelected Pada Selectable Box Genres
+  // Generating Languages Widgets
+  List<Widget> generateLanguages(BuildContext context) {
+    // calculating Container Width
+    double width =
+        (MediaQuery.of(context).size.width - 2 * defaultMargin - 24) / 2;
+
+    return widget.languages
+        .map((languageElement) => SelectableBox(
+              languageElement,
+              width: width,
+              isSelected: selectedLanguages == languageElement,
+              onTap: () {
+                selectedLanguages = languageElement;
+                setState(() {});
+              },
+            ))
+        .toList();
+  }
+
+  // Method OnSelected Pada Selectable Box Genres
   void onSelected(String genre) {
-// Check Jika Sudah Ada Genre
+    // Check Jika Sudah Ada Genre
     if (selectedGenres.contains(genre)) {
       setState(() {
         selectedGenres.remove(genre);
