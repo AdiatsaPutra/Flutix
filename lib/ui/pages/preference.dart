@@ -90,6 +90,41 @@ class _PreferencePageState extends State<PreferencePage> {
                     spacing: 24,
                     runSpacing: 24,
                     children: generateLanguages(context),
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Center(
+                    child: FloatingActionButton(
+                        elevation: 0,
+                        backgroundColor: mainColor,
+                        child: Icon(Icons.arrow_forward_ios),
+                        onPressed: () {
+                          if (selectedGenres.length != 4) {
+                            Flushbar(
+                              duration: Duration(seconds: 3),
+                              flushbarPosition: FlushbarPosition.TOP,
+                              backgroundColor: Color(0xFFFF5C83),
+                              message: 'Please Select 4 Genres',
+                            )..show(context);
+                          } else {
+                            // Passing Selected Genres Data To Model And Next Page
+                            widget.registrationData.selectedGenres =
+                                selectedGenres;
+
+                            // Passing Selected Languages Data To Model And Next Page
+                            widget.registrationData.selectedLanguages =
+                                selectedLanguages;
+
+                            // Navigate To Account Confirmation Page and Send The Registration Data
+                            context.bloc<PageBloc>().add(
+                                GoToAccountConfirmationPage(
+                                    widget.registrationData));
+                          }
+                        }),
+                  ),
+                  SizedBox(
+                    height: 50,
                   )
                 ],
               )
@@ -130,8 +165,9 @@ class _PreferencePageState extends State<PreferencePage> {
               width: width,
               isSelected: selectedLanguages == languageElement,
               onTap: () {
-                selectedLanguages = languageElement;
-                setState(() {});
+                setState(() {
+                  selectedLanguages = languageElement;
+                });
               },
             ))
         .toList();
