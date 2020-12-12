@@ -16,3 +16,14 @@ class SignOut extends UserEvent {
   @override
   List<Object> get props => [];
 }
+
+// Update Data User
+class UpdateData extends UserEvent {
+  final String name;
+  final String profilImage;
+
+  UpdateData({this.name, this.profilImage});
+
+  @override
+  List<Object> get props => [name, profilImage];
+}
