@@ -106,10 +106,10 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                               color: Colors.green,
                               onPressed: () async {
                                 setState(() {
-                                  isSignInUp == true;
+                                  isSignInUp = true;
                                 });
 
-                                imageFileToUpload ==
+                                imageFileToUpload =
                                     widget.registrationData.profileImage;
                                 SignInSignUpResult result =
                                     await AuthServices.signUp(
@@ -121,7 +121,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                                             .selectedLanguages);
                                 if (result.user == null) {
                                   setState(() {
-                                    isSignInUp == false;
+                                    isSignInUp = false;
                                     Flushbar(
                                       backgroundColor: Colors.red,
                                       duration: Duration(seconds: 3),
