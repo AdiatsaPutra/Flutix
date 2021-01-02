@@ -45,22 +45,23 @@ class _MainPageState extends State<MainPage> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              height: 46,
-              width: 46,
-              margin: EdgeInsets.only(bottom: 42),
-              child: FloatingActionButton(
-                elevation: 0,
-                backgroundColor: accentColor2,
-                onPressed: () {},
-                child: SizedBox(
-                  height: 26,
-                  width: 26,
-                  child: Icon(
-                    MdiIcons.walletPlus,
-                    color: mainColor,
-                  ),
+            height: 46,
+            width: 46,
+            margin: EdgeInsets.only(bottom: 42),
+            child: FloatingActionButton(
+              elevation: 0,
+              backgroundColor: accentColor2,
+              onPressed: () {},
+              child: SizedBox(
+                height: 26,
+                width: 26,
+                child: Icon(
+                  MdiIcons.walletPlus,
+                  color: mainColor,
                 ),
-              )),
+              ),
+            ),
+          ),
         )
       ],
     ));
