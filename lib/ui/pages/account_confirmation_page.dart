@@ -63,7 +63,7 @@ class _AccountConfirmationPageState extends State<AccountConfirmationPage> {
                         image: DecorationImage(
                             image:
                                 (widget.registrationData.profileImage == null)
-                                    ? AssetImage('assets/man.png')
+                                    ? AssetImage('assets/user_pic.png')
                                     : FileImage(
                                         widget.registrationData.profileImage),
                             fit: BoxFit.cover)),

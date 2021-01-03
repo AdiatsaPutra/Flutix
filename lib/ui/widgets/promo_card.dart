@@ -50,6 +50,83 @@ class PromoCard extends StatelessWidget {
             ],
           ),
         ),
+        ShaderMask(
+          shaderCallback: (bounds) {
+            return LinearGradient(
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
+                    colors: [Colors.black.withOpacity(0.1), Colors.transparent])
+                .createShader(
+              Rect.fromLTRB(0, 0, 77.5, 80),
+            );
+          },
+          blendMode: BlendMode.dstIn,
+          child: SizedBox(
+            width: 77.5,
+            height: 81,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(15),
+                bottomLeft: Radius.circular(15),
+              ),
+              child: Image.asset('assets/reflection2.png'),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: ShaderMask(
+            shaderCallback: (bounds) {
+              return LinearGradient(
+                  end: Alignment.centerRight,
+                  begin: Alignment.centerLeft,
+                  colors: [
+                    Colors.black.withOpacity(0.1),
+                    Colors.transparent
+                  ]).createShader(
+                Rect.fromLTRB(0, 0, 96, 45),
+              );
+            },
+            blendMode: BlendMode.dstIn,
+            child: SizedBox(
+              width: 96,
+              height: 37,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                ),
+                child: Image.asset('assets/reflection1.png'),
+              ),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: ShaderMask(
+            shaderCallback: (bounds) {
+              return LinearGradient(
+                  end: Alignment.centerRight,
+                  begin: Alignment.centerLeft,
+                  colors: [
+                    Colors.black.withOpacity(0.1),
+                    Colors.transparent
+                  ]).createShader(
+                Rect.fromLTRB(0, 0, 59, 23),
+              );
+            },
+            blendMode: BlendMode.dstIn,
+            child: SizedBox(
+              width: 59,
+              height: 23,
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15),
+                ),
+                child: Image.asset('assets/reflection1.png'),
+              ),
+            ),
+          ),
+        )
       ],
     );
   }

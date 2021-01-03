@@ -14,8 +14,7 @@ class SplashPage extends StatelessWidget {
             Container(
               height: 136,
               decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('assets/movie-ticket.png'))),
+                  image: DecorationImage(image: AssetImage('assets/logo.png'))),
             ),
             Container(
               margin: EdgeInsets.only(top: 70, bottom: 16),

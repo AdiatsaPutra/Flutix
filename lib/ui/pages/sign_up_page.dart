@@ -84,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             image: DecorationImage(
                                 image: (widget.registrationData.profileImage ==
                                         null)
-                                    ? AssetImage('assets/man.png')
+                                    ? AssetImage('assets/user_pic.png')
                                     : FileImage(
                                         widget.registrationData.profileImage),
                                 fit: BoxFit.cover)),
